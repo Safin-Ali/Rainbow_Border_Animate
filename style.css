@@ -1,54 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Volkhov:wght@700&display=swap');
+
 body {
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family: 'Volkhov', serif;
     background: #0D0D0D;
     color: #51E1ED;
     font-size: 1.875rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
 }
 
-div {
-    width: 350px;
-    height: 350px;
+p{
+    text-shadow: 0 0 20px #23C4ED;
+    letter-spacing: 1pc;
+    height: inherit;
+    margin: 0;
     position: absolute;
+    z-index: 1;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
-    overflow: hidden;
-    border-radius: 5px;
+    transform: translate(-50%);
 }
 
-div::before {
+.transparent-bg::after{
     content: '';
-    width: 200%;
-    height: 200%;
-    background: conic-gradient(
-        #1B98F5,
-        #23C4ED,
-        #383CC1,
-        #12B0E8
-    );
-    left: -50%;
-    top: -50%;
-    display: flex;
-    position: absolute;
-    animation: span 1s infinite linear;
-}
-
-div::after{
-    content: 'RGB';
     width: 95%;
     height: 95%;
     background: #0D0D0D;
     position: absolute;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     top: 2.5%;
     left: 2.5%;
-    letter-spacing: 1pc;
     border-radius: 5px;
 }
 
-@keyframes span{
+.transparent-bg::before{
+    content: '';
+    width: 150%;
+    height: 150%;
+    border-radius: 5px;
+    background: conic-gradient(
+    #1B98F5,
+    #23C4ED,
+    #383CC1,
+    #12B0E8
+    );
+    animation: span 1s infinite linear;
+    position: absolute;
+    top: -25%;
+    left: -25%;
+}
+
+.transparent-bg{
+    width: 350px;
+    height: 350px;
+    border-radius: 5px;
+    position: relative;
+    overflow: hidden;
+}
+
+@keyframes span {
     to{
         transform: rotate(360deg);
     }
